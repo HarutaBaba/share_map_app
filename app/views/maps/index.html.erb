@@ -1,0 +1,19 @@
+<h1>ShareMap</h1>
+<div id='map'></div>
+
+<style>
+#map{
+  height: 400px;
+}
+</style>
+
+<script>
+function initMap(){
+  let map = new google.maps.Map(document.getElementById('map'), {
+  center: {lat: 35.681236, lng: 139.767125},
+  zoom: 8
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmSQvPRnvLiANGb7VflD3ZD1R4zWiqYC4&callback=initMap" async defer></script>
+<a class="btn" href="#">ログイン</a>
