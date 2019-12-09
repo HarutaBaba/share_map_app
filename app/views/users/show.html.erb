@@ -6,6 +6,13 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
+      <div class="newloginnav">
+        <button type="button" class="btn btn-dark"><%= link_to "Home", root_path %></button>  
+        <button type="button" class="btn btn-dark"><%= link_to "Users", '#' %></button>  
+        <button type="button" class="btn btn-dark"><%= link_to "Profile", current_user %></button>  
+        <button type="button" class="btn btn-dark"><%= link_to "Settings", '#' %></button>
+        <button type="button" class="btn btn-dark"><%= link_to "Log out", logout_path, method: :delete %></button>
+      </div>
     </section>
   </aside>
 </div>

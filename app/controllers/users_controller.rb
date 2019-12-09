@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     if @user.save # => Validation
       # Sucess
       log_in @user
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "アカウント作成に成功しました"
       redirect_to @user
       # GET "/users/#{@user.id}" => show
     else
