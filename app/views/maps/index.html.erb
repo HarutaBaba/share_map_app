@@ -3,18 +3,28 @@
 
 <style>
 #map{
-  height: 400px;
+  height: 700px;
 }
 </style>
 
 <script>
-function initMap(){
-  let map = new google.maps.Map(document.getElementById('map'), {
-  center: {lat: 35.681236, lng: 139.767125},
-  zoom: 8
-  });
+var map;
+var marker;
+var center = {
+  lat: 34.7019399, // 緯度
+  lng: 135.51002519999997 // 経度
+};
+function initMap() {
+ map = new google.maps.Map(document.getElementById('map'), { // #sampleに地図を埋め込む
+     center: center, // 地図の中心を指定
+     zoom: 19 // 地図のズームを指定
+   });
+ 
+ marker = new google.maps.Marker({ // マーカーの追加
+        position: center, // マーカーを立てる位置を指定
+      map: map // マーカーを立てる地図を指定
+   });
 }
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmSQvPRnvLiANGb7VflD3ZD1R4zWiqYC4&callback=initMap" async defer></script>
-<a class="btn" href="/signup">ログイン</a>
