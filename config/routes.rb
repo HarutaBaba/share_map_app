@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'addfriend/addfri'
+
+  get 'friendlist/friend'
+
   get 'sessions/new'
 
   root to: 'maps#index'
@@ -10,6 +14,9 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  
+  get    '/friend',   to: 'friendlist#friend'
+  get    '/addfri',   to: 'addfriend#addfri'
 
   resources :users
 end

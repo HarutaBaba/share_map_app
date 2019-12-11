@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       # Success
       log_in user
       flash[:newlogin] = 'ログインしました'
-      redirect_to user
+      redirect_back_or user
     else
       # Failure
       flash.now[:danger] = 'Invalid email/password combination'
