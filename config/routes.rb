@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   
   get    '/friend',   to: 'friendlist#friend'
   get    '/addfri',   to: 'addfriend#addfri'
+  
+  get    '/index',   to: 'users#index'
+  post    '/index',   to: 'users#index'
 
   resources :users
 end
