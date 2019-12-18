@@ -6,7 +6,6 @@
   <%= submit_tag 'Search', :name => nil %>
 <% end %>
 
-<% if @users != nil %>
-  <% @users.each do |user| %>
-  <% end %>
+<% @users.each do |user| %>
+      <%= user.name %><br/>
 <% end %>
