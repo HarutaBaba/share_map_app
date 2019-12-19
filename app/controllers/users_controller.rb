@@ -61,9 +61,8 @@ class UsersController < ApplicationController
   end
   
   def search
-      @users = User.search(params[:search])
+    @users = User.search(params[:search])
   end
-  
 
   private
 
@@ -89,6 +88,31 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
+    
+    def follow
+      @user = User.find(params[:user_id])
+      current_user.follow(@user)
+      redirect_to user_path(@user)
+    end
+    #フォローする
+
+  def unfollow
+      @user = User.find(params[:user_id])
+      current_user.stop_following(@user)
+      redirect_to user_path(@user)
+  end
+  #フォローを外す
+
+
+  def follow_list
+    @user = User.find(params[:user_id])
+  end
+  #フォローしてる人の一覧ページ
+
+  def follower_list
+    @user = User.find(params[:user_id])
+  end
+  #フォロワーの一覧ページ
 
     def admin_user
       redirect_to(root_url) unless current_user.admin?

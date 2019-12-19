@@ -1,0 +1,10 @@
+<% if @user != nil %>
+  <% @user.all_following.each do |user| %>
+    <%= user.name %> 
+    <%= link_to '詳細', user_path(user) %>
+  <% end %>
+<% end %>
+
+<% if @user == nil %>
+  <p>フォローしているユーザーは存在しません。</p>
+<% end %>

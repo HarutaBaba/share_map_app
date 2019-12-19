@@ -1,11 +1,11 @@
 <h1>友達追加</h1>
 
 <p>検索</p>
-<%= form_tag(user_path,:method => 'get') do %>
+<%= form_tag(user_search_path,:method => 'get') do %>
   <%= text_field_tag :search %>
   <%= submit_tag 'Search', :name => nil %>
 <% end %>
 
 <% @users.each do |user| %>
-      <%= user.name %><br/>
+    <%= user.name %><br/>
 <% end %>

@@ -3,8 +3,7 @@ class AddfriendController < ApplicationController
   end
   
   def search
-    #Viewのformで取得したパラメータをモデルに渡す
-    @users = User.paginate(page: params[:page], per_page: 5).search(params[:search])
+    @users = User.search(params[:search])
   end
   
 end

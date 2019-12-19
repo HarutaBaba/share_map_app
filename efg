@@ -1,0 +1,89 @@
+[33mcommit 98f331ba8141ee2dd57e9440f2beaff0008f7eae[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31mheroku/master[m[33m, [m[1;31mheroku/datebase[m[33m, [m[1;32mfriendkinou[m[33m, [m[1;32mfriendKinou[m[33m, [m[1;32mdatebaseseisei[m[33m, [m[1;32mdatebase[m[33m)[m
+Author: Haruta Baba <bby0622@gmail.com>
+Date:   Wed Dec 18 04:56:00 2019 +0000
+
+    Finish Kensaku
+
+[33mcommit 0bc33f3ec31164ce11d80529cea7f2932adfb86a[m
+Author: Haruta Baba <bby0622@gmail.com>
+Date:   Tue Dec 17 05:24:38 2019 +0000
+
+    backupDatabese
+
+[33mcommit eb1b6685f1efd4fdb4353129176cef0004d95a69[m[33m ([m[1;32mSerthuser[m[33m)[m
+Author: Haruta Baba <bby0622@gmail.com>
+Date:   Mon Dec 16 01:45:22 2019 +0000
+
+    v12.3
+
+[33mcommit d15fcc4171139367174689167a88d80befc1f207[m[33m ([m[1;32mmapkinou[m[33m, [m[1;32mSearth[m[33m)[m
+Author: Haruta Baba <bby0622@gmail.com>
+Date:   Wed Dec 11 05:43:59 2019 +0000
+
+    Herokudepuroisimasu
+
+[33mcommit 53085318c8fa27c300b9b4106f5095d8c108460d[m[33m ([m[1;31mheroku/mapkinou[m[33m, [m[1;32mupdate-users[m[33m)[m
+Author: Haruta Baba <bby0622@gmail.com>
+Date:   Wed Dec 11 02:24:22 2019 +0000
+
+    Finish update_users
+
+[33mcommit a856e7c4dc44bfb3d965e03db2bc02da07dad8bd[m[33m ([m[1;32mlayout[m[33m)[m
+Author: Haruta Baba <bby0622@gmail.com>
+Date:   Mon Dec 9 05:27:30 2019 +0000
+
+    reiauto1
+
+[33mcommit 3c74f04256d001b0ead6f1a67c6790c24bdfdcc9[m[33m ([m[1;32mlogin-test[m[33m)[m
+Author: Haruta Baba <bby0622@gmail.com>
+Date:   Mon Dec 9 02:19:23 2019 +0000
+
+    login-test
+
+[33mcommit 1bc7cdb41fa94fdc78be567d67c8b8b01c28d0c7[m[33m ([m[1;32mlogin2[m[33m)[m
+Author: Haruta Baba <bby0622@gmail.com>
+Date:   Thu Dec 5 05:35:38 2019 +0000
+
+    login2
+
+[33mcommit a296d89add17b07ecf0bb3e8c6da063b6282bc56[m[33m ([m[1;32mlog[m[33m)[m
+Author: Haruta Baba <bby0622@gmail.com>
+Date:   Thu Dec 5 03:30:18 2019 +0000
+
+    login
+
+[33mcommit 20ead1179f0012edf8245aaec1b034b8eedca82a[m[33m ([m[1;32msignin[m[33m)[m
+Author: Haruta Baba <bby0622@gmail.com>
+Date:   Thu Dec 5 02:22:36 2019 +0000
+
+    signin1
+
+[33mcommit 6e156035b1f62e629a3dc31281eef361950b63cd[m[33m ([m[1;32msign-up[m[33m)[m
+Author: Haruta Baba <bby0622@gmail.com>
+Date:   Thu Dec 5 01:40:33 2019 +0000
+
+    signup
+
+[33mcommit 9aad2173828be9fc1705d37f0c6ad51b4d774032[m[33m ([m[1;32mlogin[m[33m)[m
+Author: Haruta Baba <bby0622@gmail.com>
+Date:   Thu Dec 5 00:56:52 2019 +0000
+
+    DataBase
+
+[33mcommit e711679a7a68155004367cebe05ec650e7ae281a[m[33m ([m[1;32mhomepage[m[33m)[m
+Author: Haruta Baba <bby0622@gmail.com>
+Date:   Wed Dec 4 03:30:00 2019 +0000
+
+    Initialize repository
+
+[33mcommit 47af5149aa63c29d780fca0b46ad4b5ef38d2a14[m
+Author: Haruta Baba <bby0622@gmail.com>
+Date:   Wed Dec 4 03:14:41 2019 +0000
+
+    Update Gemfile for Heroku
+
+[33mcommit 26fe8593ba54595d890213aa8ee33bc6b0a1c193[m
+Author: Haruta Baba <bby0622@gmail.com>
+Date:   Thu Nov 28 03:10:46 2019 +0000
+
+    Version1128

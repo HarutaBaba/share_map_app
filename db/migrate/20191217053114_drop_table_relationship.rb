@@ -1,5 +1,4 @@
-class DropTableRelationship < ActiveRecord::Migration[5.1]
+class DropTableRelationship < ActiveRecord::Migration[5.0]
   def change
-    drop_table :relationships
   end
 end

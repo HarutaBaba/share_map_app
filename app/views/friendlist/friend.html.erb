@@ -1,2 +1,25 @@
-<h1>友達一覧</h1>
-<button type="button" class="btn btn-dark friend"><%= link_to "友達追加", addfri_path %></button>  
+<h1>フォロー・フォロワー</h1>
+<button type="button" class="btn btn-dark friend"><%= link_to "フォローする", addfri_path %></button>
+
+<% if @user != nil %>
+  <% @user.all_following.each do |user| %>
+    <%= user.name %> 
+    <%= link_to '詳細', user_path(user) %>
+  <% end %>
+<% end %>
+
+<% if @user == nil %>
+  <p>フォローしているユーザーは存在しません。</p>
+<% end %>
+
+<% if @user != nil %>
+  <% @user.followers.each do |user| %>
+    <%= user.name %>
+    <%= link_to '詳細', user_path(user) %>
+  <% end %>
+<% end %>
+
+<% if @user == nil %>
+  <p>フォロされているユーザーは存在しません。</p>
+<% end %>
+

@@ -13,6 +13,18 @@
         <button type="button" class="btn btn-dark"><%= link_to "設定", edit_user_path(current_user) %></button>
         <button type="button" class="btn btn-dark"><%= link_to "ログアウト", logout_path, method: :delete %></button>
       </div>
+      
+      <%= @user.follow_count %>
+        <%= link_to "フォロー", {controller: :users,action: :follow_list,user_id: @user.id}, method: :get %>
+        <% #クリックすると、フォローリストに飛ぶ %>
+        <%= @user.followers_count %>
+        <%= link_to "フォロワー", {controller: :users,action: :follower_list,user_id: @user.id}, method: :get %>
+        <% #クリックすると、フォロワーリストに飛ぶ %>
+
+      <% if current_user.id != @user.id %>
+        <%= render 'follow_form' %>
+      <% end %>
+      <% #ユーザーがカレントユーザーじゃなかったら、'_follow_form.html.erb'を表示 %>
     </section>
   </aside>
 </div>
