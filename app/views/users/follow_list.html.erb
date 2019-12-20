@@ -1,7 +1,9 @@
+<button type="button" class="btn btn-dark friend"><%= link_to "フォローしてみよう", addfri_path %></button>
+
 <% if @user != nil %>
   <% @user.all_following.each do |user| %>
     <%= user.name %> 
-    <%= link_to '詳細', user_path(user) %>
+    <%= link_to '詳細', user_path(user) %><br/>
   <% end %>
 <% end %>
 

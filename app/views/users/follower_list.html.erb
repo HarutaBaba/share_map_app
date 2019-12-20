@@ -1,7 +1,7 @@
 <% if @user != nil %>
   <% @user.followers.each do |user| %>
     <%= user.name %>
-    <%= link_to '詳細', user_path(user) %>
+    <%= link_to '詳細', user_path(user) %><br/>
   <% end %>
 <% end %>
 

@@ -1,3 +1,5 @@
+<h1>プロフィール</h1>
+
 <% provide(:title, @user.name) %>
 <div class="row">
   <aside class="col-md-4">
@@ -6,20 +8,17 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
-      <div class="newloginnav">
-        <button type="button" class="btn btn-dark"><%= link_to "ホーム", root_path %></button>  
-        <button type="button" class="btn btn-dark"><%= link_to "プロフィール", current_user %></button>
-        <button type="button" class="btn btn-dark"><%= link_to "友達", friend_path %></button>
-        <button type="button" class="btn btn-dark"><%= link_to "設定", edit_user_path(current_user) %></button>
-        <button type="button" class="btn btn-dark"><%= link_to "ログアウト", logout_path, method: :delete %></button>
-      </div>
-      
+    </section>
+    <section>
+      <h1>フォロー・フォロワー</h1>
       <%= @user.follow_count %>
         <%= link_to "フォロー", {controller: :users,action: :follow_list,user_id: @user.id}, method: :get %>
         <% #クリックすると、フォローリストに飛ぶ %>
         <%= @user.followers_count %>
         <%= link_to "フォロワー", {controller: :users,action: :follower_list,user_id: @user.id}, method: :get %>
         <% #クリックすると、フォロワーリストに飛ぶ %>
+        
+        <button type="button" class="btn btn-dark friend"><%= link_to "フォローしてみよう", addfri_path %></button>
 
       <% if current_user.id != @user.id %>
         <%= render 'follow_form' %>

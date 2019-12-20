@@ -7,5 +7,5 @@
 <% end %>
 
 <% @users.each do |user| %>
-    <%= user.name %><br/>
+    <%= user.name %><%= link_to "詳細", user_path(user) %><br/>
 <% end %>
