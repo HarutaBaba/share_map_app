@@ -10,18 +10,18 @@
       </h1>
     </section>
     <section>
-      <h1>フォロー・フォロワー</h1>
       <%= @user.follow_count %>
         <%= link_to "フォロー", {controller: :users,action: :follow_list,user_id: @user.id}, method: :get %>
         <% #クリックすると、フォローリストに飛ぶ %>
         <%= @user.followers_count %>
         <%= link_to "フォロワー", {controller: :users,action: :follower_list,user_id: @user.id}, method: :get %>
         <% #クリックすると、フォロワーリストに飛ぶ %>
-        
-        <button type="button" class="btn btn-dark friend"><%= link_to "フォローしてみよう", addfri_path %></button>
+        <br/>
+        <button type="button" class="btn btn-dark"><%= link_to "他の人をフォローする", addfri_path %></button>
 
       <% if current_user.id != @user.id %>
         <%= render 'follow_form' %>
+        <%= render 'chat_form' %>
       <% end %>
       <% #ユーザーがカレントユーザーじゃなかったら、'_follow_form.html.erb'を表示 %>
     </section>

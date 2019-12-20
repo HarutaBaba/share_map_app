@@ -30,6 +30,6 @@ Rails.application.routes.draw do
 
   #get 'users/search' => 'users#search'
   resources :users
-  
+  resources :chat, only: %i(create show)
   
 end

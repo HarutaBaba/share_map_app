@@ -1,4 +1,4 @@
-<h1>友達追加</h1>
+<h1>フォローするユーザーを検索</h1>
 
 <p>検索</p>
 <%= form_tag(user_search_path,:method => 'get') do %>
@@ -7,5 +7,7 @@
 <% end %>
 
 <% @users.each do |user| %>
-    <%= user.name %><%= link_to "詳細", user_path(user) %><br/>
+    <ul>
+      <li class="itiran"><%= link_to user.name, user_path(user) %><%= gravatar_for user %></li>
+    </ul>
 <% end %>

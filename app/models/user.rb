@@ -9,6 +9,9 @@ class User < ApplicationRecord
   
   acts_as_followable # フォロワー機能
   acts_as_follower   # フォロー機能
+  
+  has_many :chat_messages
+  has_many :chat_room_users
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

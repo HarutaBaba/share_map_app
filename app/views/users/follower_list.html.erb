@@ -1,7 +1,8 @@
 <% if @user != nil %>
   <% @user.followers.each do |user| %>
-    <%= user.name %>
-    <%= link_to '詳細', user_path(user) %><br/>
+    <ul>
+      <li class="itiran"><%= link_to user.name, user_path(user) %><%= gravatar_for user %></li>
+    </ul>
   <% end %>
 <% end %>
 

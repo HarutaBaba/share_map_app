@@ -1,12 +1,13 @@
-<button type="button" class="btn btn-dark friend"><%= link_to "フォローしてみよう", addfri_path %></button>
-
 <% if @user != nil %>
   <% @user.all_following.each do |user| %>
-    <%= user.name %> 
-    <%= link_to '詳細', user_path(user) %><br/>
+    <ul>
+      <li class="itiran"><%= link_to user.name, user_path(user) %><%= gravatar_for user %></li> 
+    </ul>
   <% end %>
 <% end %>
 
 <% if @user == nil %>
   <p>フォローしているユーザーは存在しません。</p>
 <% end %>
+<br/>
+<button type="button" class="btn btn-dark mar"><%= link_to "他の人をフォローする", addfri_path %></button>
