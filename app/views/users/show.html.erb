@@ -21,9 +21,8 @@
 
       <% if current_user.id != @user.id %>
         <%= render 'follow_form' %>
-        <%= render 'chat_form' %>
       <% end %>
-      <% #ユーザーがカレントユーザーじゃなかったら、'_follow_form.html.erb'を表示 %>
+      <%= render 'chat_form' %>
     </section>
   </aside>
 </div>

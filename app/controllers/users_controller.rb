@@ -10,6 +10,10 @@ class UsersController < ApplicationController
     # => app/views/users/show.html.erb
     # debugger
   end
+  
+  def index
+    @user = User.find(params[:id])
+  end
 
   # GET /users/new
   def new

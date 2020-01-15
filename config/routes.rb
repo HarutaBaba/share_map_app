@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   root to: 'maps#index'
   resources :maps, only: [:index]
+  post  '/'  ,  to: 'maps#index'
+  resources :maps
   
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'

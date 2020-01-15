@@ -8,8 +8,8 @@
 
 <% if @users != nil %>
   <% @users.each do |user| %>
-  <ul>
+    <ul>
       <li class="itiran"><%= link_to user.name, user_path(user) %><%= gravatar_for user %></li>
-  </ul>
+    </ul>
   <% end %>
 <% end %>
