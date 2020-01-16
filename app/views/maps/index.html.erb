@@ -63,16 +63,18 @@ function initMap() {
 　<%= submit_tag "位置を登録する", class: "btn btn-primary" %>
 <% end %>
 <% else %>
-<%= current_user.name %>
-<%= @title %>
-<%= @time %>
-<%= @gender %>
-<%= submit_tag "予定情報を登録する", class: "btn btn-primary" %>
+ <%= current_user.name %>
+ <%= @title %>
+ <%= @time %>
+ <%= @gender %>
 
-<%= form_for(@user) do |f| %>
-  <%= f.text_field :name %>
-  <%= f.submit %>
-<% end %>
-
+ <% @plan = Plan.new unless @plan %>
+ <%= form_for(@plan, url: new_plan_path) do |f| %>
+  <%= f.hidden_field :name, :value => current_user.name %>
+  <%= f.hidden_field :title, :value => @title %>
+  <%= f.hidden_field :time, :value => @time %>
+  <%= f.hidden_field :gender, :value => @gender %>
+  <%= f.submit "予定情報を登録する", class: "btn btn-primary" %>
+ <% end %>
 
 <% end %>

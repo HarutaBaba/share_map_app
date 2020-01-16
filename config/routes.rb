@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   post  '/'  ,  to: 'maps#index'
   resources :maps
   
+  resources :plans
+  post 'plans/new'
+
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
 
