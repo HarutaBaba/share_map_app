@@ -5,6 +5,7 @@ gem 'bootstrap-sass', '3.3.7'
 gem 'bcrypt',         '3.1.11'
 gem 'ransack'
 gem 'will_paginate'
+gem 'gon'
 
 gem 'puma',         '3.9.1'
 gem 'sass-rails',   '5.0.6'

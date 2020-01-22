@@ -10,6 +10,6 @@
   <% @users.each do |user| %>
     <ul>
       <li class="itiran"><%= link_to user.name, user_path(user) %><%= gravatar_for user %></li>
-    </ul>
+  </ul>
   <% end %>
 <% end %>

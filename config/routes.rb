@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   root to: 'maps#index'
+  #root to: 'plans#show'
   resources :maps, only: [:index]
   post  '/'  ,  to: 'maps#index'
   resources :maps
