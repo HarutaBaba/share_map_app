@@ -6,13 +6,10 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   root to: 'maps#index'
-  #root to: 'plans#show'
-  resources :maps, only: [:index]
   post  '/'  ,  to: 'maps#index'
-  resources :maps
   
   resources :plans
-  post 'plans/new'
+  resources :maps
 
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'

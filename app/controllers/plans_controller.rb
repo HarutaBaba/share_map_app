@@ -15,8 +15,9 @@ class PlansController < ApplicationController
   end
   
   def create
-    @plan = Plan.new(plan_params)
-    if @plan.save
+    @user = current_user
+    @plan = @user.plans.new(plan_params)
+    if @user.save
       render html: "登録完了"
     else
       render 'new'

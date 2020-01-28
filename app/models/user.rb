@@ -10,6 +10,9 @@ class User < ApplicationRecord
   acts_as_followable # フォロワー機能
   acts_as_follower   # フォロー機能
   
+  has_many :userplans
+  has_many :plans, through: :userplans
+  
   has_many :chat_messages
   has_many :chat_room_users
 

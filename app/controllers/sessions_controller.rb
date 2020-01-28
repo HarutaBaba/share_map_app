@@ -2,6 +2,10 @@ class SessionsController < ApplicationController
 
   # GET /login
   def new
+    #if logged_in?
+      #@user = current_user
+      #render 'users/show'
+    #end
     #@session = Session.new
   end
 
