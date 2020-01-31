@@ -107,17 +107,6 @@ function initMap() {
 
 </br>
 
-<% if logged_in? %>
-  <%= form_for(@userplan, url: {controller: :maps, action: :index}, method: :get) do |f| %>
-      <% @followuser.each do |aaa| %>
-          <%= f.hidden_field 'followid[]', :value => aaa.id %>
-      <% end %>
-      <%= f.hidden_field :kari, :value => 'kari' %>
-      <% @para = 'a' %>
-      <%= f.submit "友達の予定を表示する", class: "btn btn-primary" %>
-  <% end %>
-<% end %>
-
 <%= form_tag(maps_path, method: :post) do %>
   <%= label_tag(:title, "タイトル")  %>
 　<%= text_field_tag "title","" ,class: 'form-control' %>
@@ -150,3 +139,6 @@ function initMap() {
  <% end %>
  
  <% end %>
+ 
+ 
+ 
