@@ -10,23 +10,37 @@
 </style>
 
 <script>
+
 <% if !@fplan.nil? %>
 var map;
-var marker;
-var infoWindow;
-var markerLatLng;
 var center = {
   lat: 34.7019399, // 緯度
   lng: 135.51002519999997 // 経度
 };
-var markerData = {
-   		name: '<%= @fplan.name %>',
-   		title: '<%= @fplan.title %>',
-   		time: '<%= @fplan.time %>',
-   		status: '<%= @fplan.status %>',
-   		lat: '<%= @fplan.lat %>',
-   		lng: '<%= @fplan.lng %>'
- };
+var marker = [];
+var infoWindow = [];
+var markerLatLng;
+var markerData = [ // マーカーを立てる場所名・緯度・経度
+    <% @fplan.each do |fff| %>
+       {
+          
+   		    name: "<%= fff[0][:name] %>",
+   		    title: "<%= fff[0][:title] %>",
+   		    time: "<%= fff[0][:time] %>",
+   	    	status: "<%= fff[0][:status] %>",
+       		lat: <%= fff[0][:lat] %>,
+       		lng: <%= fff[0][:lng] %>
+       },
+   <% end %>
+   {
+   		name: '仮',
+   		title: '仮',
+   		time: '仮',
+   		status: '募集しない',
+   		lat: '34.7019399',
+   		lng: '135.51002519999997'
+   }
+];
 
  // 地図の作成
  function initMap() {
@@ -36,22 +50,25 @@ var markerData = {
    });
 
  // マーカー毎の処理
-        marker = new google.maps.Marker({ // マーカーの追加
-         position: new google.maps.LatLng(markerData['lat'], markerData['lng']), // マーカーを立てる位置を指定
-         map: map // マーカーを立てる地図を指定
+ for (var i = 0; i < markerData.length; i++) {
+        markerLatLng = new google.maps.LatLng({lat: markerData[i]['lat'], lng: markerData[i]['lng']}); // 緯度経度のデータ作成
+        marker[i] = new google.maps.Marker({ // マーカーの追加
+         position: markerLatLng, // マーカーを立てる位置を指定
+            map: map // マーカーを立てる地図を指定
        });
 
-     infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
-         content: '<div>' + markerData['name'] + '<br/>' + markerData['title'] + '<br/>' + markerData['time'] + '<br/>' + markerData['status'] + '</div>' // 吹き出しに表示する内容
+     infoWindow[i] = new google.maps.InfoWindow({ // 吹き出しの追加
+         content: '<div class="sample">' + markerData[i]['name'] + '<br/>' + markerData[i]['title'] + '<br/>' + markerData[i]['time'] + '<br/>' + markerData[i]['status'] + '</div>' // 吹き出しに表示する内容
        });
 
-     markerEvent(); // マーカーにクリックイベントを追加
+     markerEvent(i); // マーカーにクリックイベントを追加
  }
+}
 
 // マーカーにクリックイベントを追加
-function markerEvent() {
-    marker.addListener('click', function() { // マーカーをクリックしたとき
-      infoWindow.open(map, marker); // 吹き出しの表示
+function markerEvent(i) {
+    marker[i].addListener('click', function() { // マーカーをクリックしたとき
+      infoWindow[i].open(map, marker[i]); // 吹き出しの表示
   });
 }
 
@@ -107,17 +124,7 @@ function initMap() {
 
 </br>
 
-<%= form_tag(maps_path, method: :post) do %>
-  <%= label_tag(:title, "タイトル")  %>
-　<%= text_field_tag "title","" ,class: 'form-control' %>
-　<%= label_tag(:time, "日付")  %>
-　<%= text_field_tag "time",""  ,class: 'form-control'%>
-　<%= label_tag(:status, "募集する")  %>
-　<%= radio_button_tag(:status, "募集する") %>
-　<%= label_tag(:status, "募集しない") %>
-  <%= radio_button_tag(:status, "募集しない") %>
-　<%= submit_tag "位置を登録する", class: "btn btn-primary" %>
-<% end %>
+
 
 <% if !@title.nil? %>
  <%= current_user.name %>
@@ -138,7 +145,23 @@ function initMap() {
   <%= f.submit "予定情報を登録する", class: "btn btn-primary" %>
  <% end %>
  
- <% end %>
+ <% else %>
+ 
+ 
+ <%= form_tag(maps_path, method: :post) do %>
+  <%= label_tag(:title, "タイトル")  %>
+　<%= text_field_tag "title","" ,class: 'form-control' %>
+　<%= label_tag(:time, "日付")  %>
+　<%= text_field_tag "time",""  ,class: 'form-control'%>
+　<%= label_tag(:status, "募集する")  %>
+　<%= radio_button_tag(:status, "募集する") %>
+　<%= label_tag(:status, "募集しない") %>
+  <%= radio_button_tag(:status, "募集しない") %>
+　<%= submit_tag "位置を登録する", class: "btn btn-primary" %>
+<% end %>
+
+
+<% end %>
  
  
  
