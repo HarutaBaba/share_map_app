@@ -24,9 +24,17 @@ class MapsController < ApplicationController
           end
         end
       end
-      @loginuser = Userplan.find(current_user.id)
-      @fplan.push(Plan.where(id: @loginuser.plan_id))
-      
+      @loginuser = []
+      @loginuser.push(Userplan.where(user_id: current_user.id))
+       if !@loginuser[0][0].nil?
+          # 添え字定義
+          @i = 0
+          while @i < @loginuser.length do
+            # 配列にPlan情報を入れる
+            @fplan.push(Plan.where(id: @loginuser[0][@i][:plan_id]))
+            @i += 1
+          end
+        end
       
 
     end
