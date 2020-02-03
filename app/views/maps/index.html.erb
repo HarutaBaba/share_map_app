@@ -14,8 +14,8 @@
 <% if !@fplan.nil? %>
 var map;
 var center = {
-  lat: 34.7019399, // 緯度
-  lng: 135.51002519999997 // 経度
+  lat: 37.913649539518495, // 緯度
+  lng: 139.06045769245148 // 経度
 };
 var marker = [];
 var infoWindow = [];
@@ -72,7 +72,51 @@ function markerEvent(i) {
   });
 }
 
+function getCurrentPosition() {
+               if (navigator.geolocation) {
+                    var bHighAccuracy = document.getElementById('chxHighAccuracy').checked;
+                    var PositionOptions = {
+                         enableHighAccuracy: bHighAccuracy,/* 高精度の結果取得是非 */
+                         timeout: 5000,                    /* 位置情報の取得にかかる時間の上限 (ミリ秒)   */
+                         maximumAge:Infinity              /* キャッシュ済みの位置情報の有効期限 (ミリ秒)、Infinity：無限 */
+                    };
+                   /* 現在位置取得 */
+                    navigator.geolocation.getCurrentPosition(success_func, error_func,PositionOptions);
+               } else {
+                    alert('Geolocation を利用できません');
+               }
+          }
+          function success_func(position) {
+               /* positionは位置情報を保持しています */
+               var lat = position.coords.latitude;
+               var lng = position.coords.longitude;
+               var alt = position.coords.altitude;
+               var accuracy = position.coords.accuracy;
+               var accuracyAlt = position.coords.altitudeAccuracy ;
+               var heading = position.coords.heading ;             // 0=北、90=東、180=南、270=西
+               var speed = position.coords.speed ;
+               var now = new Date(position.timestamp);  // 取得時間
+               var YourPosition =  new google.maps.LatLng(lat,lng);
 
+               map.setCenter(YourPosition);
+               
+          }
+          function error_func(errorinfo) {
+               /* errorinfoはエラー情報を保持しています */
+               var errorcode = errorinfo.code;
+               var errmessage = errorinfo.message;
+               switch(errorcode) {
+                    case errorinfo.PERMISSION_DENIED: // 1:PERMISSION_DENIED:
+                         alert('このページにはアクセス許可がないため、位置情報の取得に失敗しました。\nエラーメッセージ：' + errmessage);
+                         break;
+                    case errorinfo.POSITION_UNAVAILABLE: // 2:POSITION_UNAVAILABLE:
+                         alert('少なくともひとつの位置情報ソースが内部的なエラーを返したため、位置情報の取得に失敗しました。\nエラーメッセージ：' + errmessage);
+                         break;
+                    case errorinfo.TIMEOUT: // 3:TIMEOUT:
+                         alert('指定された制限時間内に位置情報を取得することができませんでした。\nエラーメッセージ：' + errmessage);
+                         break;
+               }
+          }
 
 <% else %>
 
@@ -80,8 +124,8 @@ var map;
 var marker;
 var infoWindow;
 var center = {
-  lat: 34.7019399, // 緯度
-  lng: 135.51002519999997 // 経度
+  lat: 37.913649539518495, // 緯度
+  lng: 139.06045769245148 // 経度
 };
 // 地図を埋め込む
 function initMap() {
@@ -117,13 +161,59 @@ function initMap() {
    
 }
 
+function getCurrentPosition() {
+               if (navigator.geolocation) {
+                    var bHighAccuracy = document.getElementById('chxHighAccuracy').checked;
+                    var PositionOptions = {
+                         enableHighAccuracy: bHighAccuracy,/* 高精度の結果取得是非 */
+                         timeout: 5000,                    /* 位置情報の取得にかかる時間の上限 (ミリ秒)   */
+                         maximumAge:Infinity              /* キャッシュ済みの位置情報の有効期限 (ミリ秒)、Infinity：無限 */
+                    };
+                   /* 現在位置取得 */
+                    navigator.geolocation.getCurrentPosition(success_func, error_func,PositionOptions);
+               } else {
+                    alert('Geolocation を利用できません');
+               }
+          }
+          function success_func(position) {
+               /* positionは位置情報を保持しています */
+               var lat = position.coords.latitude;
+               var lng = position.coords.longitude;
+               var alt = position.coords.altitude;
+               var accuracy = position.coords.accuracy;
+               var accuracyAlt = position.coords.altitudeAccuracy ;
+               var heading = position.coords.heading ;             // 0=北、90=東、180=南、270=西
+               var speed = position.coords.speed ;
+               var now = new Date(position.timestamp);  // 取得時間
+               var YourPosition =  new google.maps.LatLng(lat,lng);
+
+               map.setCenter(YourPosition);
+               
+          }
+          function error_func(errorinfo) {
+               /* errorinfoはエラー情報を保持しています */
+               var errorcode = errorinfo.code;
+               var errmessage = errorinfo.message;
+               switch(errorcode) {
+                    case errorinfo.PERMISSION_DENIED: // 1:PERMISSION_DENIED:
+                         alert('このページにはアクセス許可がないため、位置情報の取得に失敗しました。\nエラーメッセージ：' + errmessage);
+                         break;
+                    case errorinfo.POSITION_UNAVAILABLE: // 2:POSITION_UNAVAILABLE:
+                         alert('少なくともひとつの位置情報ソースが内部的なエラーを返したため、位置情報の取得に失敗しました。\nエラーメッセージ：' + errmessage);
+                         break;
+                    case errorinfo.TIMEOUT: // 3:TIMEOUT:
+                         alert('指定された制限時間内に位置情報を取得することができませんでした。\nエラーメッセージ：' + errmessage);
+                         break;
+               }
+          }
+
 <% end %>
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmSQvPRnvLiANGb7VflD3ZD1R4zWiqYC4&callback=initMap" async defer></script>
-
-</br>
-
+<button class'btn btn-primary' type='button' onclick='getCurrentPosition();'>現在位置取得</button>
+<input type="hidden" id="chxHighAccuracy" />
+     <br/>
 
 
 <% if !@title.nil? %>

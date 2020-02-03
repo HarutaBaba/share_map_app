@@ -5,18 +5,30 @@ class MapsController < ApplicationController
     if logged_in?
       #フォローしている人をすべて取り出す
       @followuser = current_user.all_following
+      # プラン情報の配列定義
       @fplan = []
       
       @followuser.each do |aaa|
-        @userplan = Userplan.find_by(user_id: aaa.id)
-        #(byebug)
+        # 中間テーブル配列定義・初期化
+        @userplan = []
+        # 配列にフォローしているユーザーの中間テーブル情報を入れる
+        @userplan.push(Userplan.where(user_id: aaa.id))
+        # もし中間テーブルがnilではなかったら
         if !@userplan.nil?
-          @fplan.push(Plan.where(id: @userplan.plan_id))
+          # 添え字定義
+          @i = 0
+          while @i < @userplan.length do
+            # 配列にPlan情報を入れる
+            @fplan.push(Plan.where(id: @userplan[0][@i][:plan_id]))
+            @i += 1
+          end
         end
       end
       @loginuser = Userplan.find(current_user.id)
       @fplan.push(Plan.where(id: @loginuser.plan_id))
       
+      
+
     end
   end
   
